@@ -8,7 +8,7 @@ import java.util.Date;
  * @author Andrew Kreimer
  *
  */
-public class Quote {
+public class Quote implements QuoteValidator{
 	/**
 	 * OHLC
 	 */
@@ -19,7 +19,6 @@ public class Quote {
 	protected Date timestamp;
 
 	public Quote(double open, double high, double low, double close, Date timestamp) {
-		super();
 		this.open = open;
 		this.high = high;
 		this.low = low;
@@ -71,10 +70,17 @@ public class Quote {
 	 * Check if the data is clean and ready for calculations
 	 * @return
 	 */
+	@Override
 	public boolean isCleanAttribute(){
 		return open != 0 && 
 				high != 0 && 
 				low != 0 && 
 				close != 0;
+	}
+
+	@Override
+	public boolean isCleanClass() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
