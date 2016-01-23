@@ -18,12 +18,25 @@ public class Quote implements QuoteValidator{
 	protected double close;
 	protected Date timestamp;
 
+	/**
+	 * Trend
+	 */
+	protected String classifiedTrend;
+
 	public Quote(double open, double high, double low, double close, Date timestamp) {
 		this.open = open;
 		this.high = high;
 		this.low = low;
 		this.close = close;
 		this.timestamp = timestamp;
+	}
+
+	public String getClassifiedTrend() {
+		return classifiedTrend;
+	}
+
+	public void setClassifiedTrend(String classifiedTrend) {
+		this.classifiedTrend = classifiedTrend;
 	}
 	
 	public Date getTimestamp() {
@@ -67,7 +80,7 @@ public class Quote implements QuoteValidator{
 	}
 	
 	/**
-	 * Check if the data is clean and ready for calculations
+	 * Checks if the data is clean and ready for calculations
 	 * @return
 	 */
 	@Override
@@ -78,9 +91,12 @@ public class Quote implements QuoteValidator{
 				close != 0;
 	}
 
+	/**
+	 * Checks if the data is clean and ready for calculations
+	 * @return
+	 */
 	@Override
 	public boolean isCleanClass() {
-		// TODO Auto-generated method stub
-		return false;
+		return !classifiedTrend.equals(Trend.UNCERTAINTY) && !classifiedTrend.equals(Trend.RANGING);
 	}
 }

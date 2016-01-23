@@ -5,6 +5,8 @@ import java.util.ArrayList;
 /**
  * Holds data for symbol
  * Name examples: GOOG, FB, EURUSD etc.
+ * Period examples: M5, H1, D1 etc.
+ * Class name examples: Up or Down
  *  
  * @author Andrew Kreimer
  *
