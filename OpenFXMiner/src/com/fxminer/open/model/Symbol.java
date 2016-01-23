@@ -1,4 +1,4 @@
-package com.algonell.openfxminer.model;
+package com.fxminer.open.model;
 
 import java.util.ArrayList;
 
