@@ -7,5 +7,5 @@ package com.fxminer.open.model;
  *
  */
 public enum Trend {
-	UP, DOWN, RANGING, UNCERTAINTY;
+	Up, Down, Ranging, Uncertainty;
 }

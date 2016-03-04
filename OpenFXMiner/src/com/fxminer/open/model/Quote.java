@@ -97,6 +97,6 @@ public class Quote implements QuoteValidator{
 	 */
 	@Override
 	public boolean isCleanClass() {
-		return !classifiedTrend.equals(Trend.UNCERTAINTY) && !classifiedTrend.equals(Trend.RANGING);
+		return !classifiedTrend.equals(Trend.Uncertainty) && !classifiedTrend.equals(Trend.Ranging);
 	}
 }
