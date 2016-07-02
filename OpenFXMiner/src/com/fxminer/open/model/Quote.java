@@ -83,7 +83,6 @@ public class Quote implements QuoteValidator{
 	 * Checks if the data is clean and ready for calculations
 	 * @return
 	 */
-	@Override
 	public boolean isCleanAttribute(){
 		return open != 0 && 
 				high != 0 && 
@@ -95,8 +94,7 @@ public class Quote implements QuoteValidator{
 	 * Checks if the data is clean and ready for calculations
 	 * @return
 	 */
-	@Override
 	public boolean isCleanClass() {
-		return !classifiedTrend.equals(Trend.Uncertainty) && !classifiedTrend.equals(Trend.Ranging);
+		return !classifiedTrend.equals(Trend.Uncertainty.name()) && !classifiedTrend.equals(Trend.Ranging.name());
 	}
 }
