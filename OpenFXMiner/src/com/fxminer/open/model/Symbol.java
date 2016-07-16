@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Holds data for symbol
  * Name examples: GOOG, FB, EURUSD etc.
  * Period examples: M5, H1, D1 etc.
- * Class name examples: Up or Down
+ * Class name examples: Up or Down etc.
  *  
  * @author Andrew Kreimer
  *
@@ -16,7 +16,7 @@ public class Symbol{
 	private String period;
 	private String className;
 	/** 
-	 * [0] is the most current, [n] is the last in history
+	 * [0] is the most recent tick, [n] is the last in history (oldest)
 	 */
 	private ArrayList<Quote> history = new ArrayList<Quote>();
 	
