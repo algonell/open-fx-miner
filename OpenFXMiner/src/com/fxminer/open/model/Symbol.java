@@ -7,9 +7,6 @@ import java.util.ArrayList;
  * Name examples: GOOG, FB, EURUSD etc.
  * Period examples: M5, H1, D1 etc.
  * Class name examples: Up or Down etc.
- *  
- * @author Andrew Kreimer
- *
  */
 public class Symbol{
 	private String name;

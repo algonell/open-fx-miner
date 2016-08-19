@@ -4,8 +4,6 @@ import java.util.Date;
 
 /**
  * Container for basic asset data (FX currency pair, Stock and etc.)
- * 
- * @author Andrew Kreimer
  *
  */
 public class Quote implements QuoteValidator{
