@@ -14,6 +14,8 @@ public class Quote implements QuoteValidator{
 	protected double high;
 	protected double low;
 	protected double close;
+	protected double adjClose;
+	protected long volume;
 	protected Date timestamp;
 
 	/**
@@ -21,12 +23,30 @@ public class Quote implements QuoteValidator{
 	 */
 	protected String classifiedTrend;
 
-	public Quote(double open, double high, double low, double close, Date timestamp) {
+	public Quote(double open, double high, double low, double close, double adjClose, long volume, Date timestamp) {
 		this.open = open;
 		this.high = high;
 		this.low = low;
 		this.close = close;
+		this.adjClose = adjClose;
+		this.volume = volume;
 		this.timestamp = timestamp;
+	}
+
+	public double getAdjClose() {
+		return adjClose;
+	}
+
+	public void setAdjClose(double adjClose) {
+		this.adjClose = adjClose;
+	}
+
+	public long getVolume() {
+		return volume;
+	}
+
+	public void setVolume(long volume) {
+		this.volume = volume;
 	}
 
 	public String getClassifiedTrend() {
