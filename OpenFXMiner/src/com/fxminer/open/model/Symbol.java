@@ -18,9 +18,15 @@ public class Symbol{
 	private ArrayList<Quote> history = new ArrayList<Quote>();
 	
 	public Symbol(String period, String name) {
-		super();
 		this.name = name;
 		this.period = period;
+	}
+	
+	public Symbol(Symbol copy) {
+		this.name = copy.name;
+		this.period = copy.period;
+		this.className = copy.className;
+		this.history = copy.history;
 	}
 	
 	public String getClassName() {
