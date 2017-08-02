@@ -67,5 +67,12 @@
 			<version>2.5</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>3.6.1</version>
+		</dependency>
+
 	</dependencies>
 </project>

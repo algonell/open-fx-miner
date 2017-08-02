@@ -2,6 +2,8 @@ package com.fxminer.open.model;
 
 import java.util.ArrayList;
 
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+
 /**
  * Holds data for symbol
  * Name examples: GOOG, FB, EURUSD etc.
@@ -59,5 +61,26 @@ public class Symbol{
 
 	public void setHistory(ArrayList<Quote> history) {
 		this.history = history;
+	}
+	
+	/**
+	 * Similar to Yahoo Avg Vol: 63 days mean volume
+	 * @return 3 month avg vol
+	 * @throws Exception
+	 */
+	public long calculateAvgVol() throws Exception{
+		DescriptiveStatistics stats = new DescriptiveStatistics();
+		
+		//min data points is 63
+		if(history.size() < 63){
+			return 0;
+		}
+		
+		//calc mean
+		for (int i = 0; i < 63; i++) {
+			stats.addValue(history.get(i).getVolume());
+		}
+		
+		return (long)stats.getMean();
 	}
 }
