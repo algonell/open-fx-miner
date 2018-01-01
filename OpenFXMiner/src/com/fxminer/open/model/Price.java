@@ -38,4 +38,8 @@ public class Price {
 	public double getMid() {
 		return weka.core.Utils.roundDouble((ask + bid) / 2, 2);
 	}
+	
+	public double getSpread() {
+		return weka.core.Utils.roundDouble(ask - bid, 2);
+	}
 }
