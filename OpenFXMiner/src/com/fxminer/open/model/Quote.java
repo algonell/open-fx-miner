@@ -1,12 +1,15 @@
 package com.fxminer.open.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Container for basic asset data (FX currency pair, Stock and etc.)
  *
  */
-public class Quote implements QuoteValidator{
+public class Quote implements QuoteValidator, Serializable {
+	private static final long serialVersionUID = -2885651778065986388L;
+	
 	/**
 	 * OHLC
 	 */

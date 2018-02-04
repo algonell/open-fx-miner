@@ -1,5 +1,6 @@
 package com.fxminer.open.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
@@ -10,10 +11,13 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
  * Period examples: M5, H1, D1 etc.
  * Class name examples: Up or Down etc.
  */
-public class Symbol{
+public class Symbol implements Serializable {
+	private static final long serialVersionUID = 7595668717527149119L;
+	
 	private String name;
 	private String period;
 	private String className;
+	
 	/** 
 	 * [0] is the most recent tick, [n] is the last in history (oldest)
 	 */
