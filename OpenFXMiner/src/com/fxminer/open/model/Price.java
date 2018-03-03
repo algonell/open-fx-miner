@@ -42,4 +42,9 @@ public class Price {
 	public double getSpread() {
 		return weka.core.Utils.roundDouble(ask - bid, 2);
 	}
+
+	@Override
+	public String toString() {
+		return "[" + getMid() + ", " + getSpread() + ", " + volume + "]";
+	}
 }
