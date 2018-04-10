@@ -11,6 +11,11 @@ import com.fxminer.open.model.Symbol;
 public interface CandlestickPattern {
 	
 	/**
+	 * Maximum threshold between equal prices comparison 
+	 */
+	public static final double EPSILON = 0.01;
+	
+	/**
 	 * Check if this pattern exists for a given Symbol
 	 * 
 	 * @param symbol
@@ -24,4 +29,11 @@ public interface CandlestickPattern {
 	 * @return
 	 */
 	public PatternDirection getDirection();
+	
+	/**
+	 * Get the pattern name
+	 * 
+	 * @return
+	 */
+	public String getName();
 }
