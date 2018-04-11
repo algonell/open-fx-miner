@@ -1,30 +1,30 @@
-package com.fxminer.open.model.candlestickpattern.bullish;
+package com.fxminer.open.model.candlestickpattern.bearish;
 
 import com.fxminer.open.model.Quote;
 import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding downtrend
- * 2. First candle red, second candle green
- * 3. Both candles sharing same/almost same low
+ * 1. Preceding uptrend
+ * 2. First candle green, second candle red
+ * 3. Both candles sharing same/almost same high
  * 
  * @author Andrew Kreimer
  *
  */
-public class TweezerBottom extends BullishPattern {
+public class TweezerTop extends BearishPattern {
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
 		Quote q0 = symbol.getHistory().get(0);
 		Quote q1 = symbol.getHistory().get(1);
 		
-		return q1.getOpen() - q1.getAdjClose() > 0 && //second green
-				q0.getAdjClose() - q0.getOpen() > 0 && //first red
+		return q1.getAdjClose() - q1.getOpen() > 0 && //first green
+				q0.getOpen() - q0.getAdjClose() > 0 && //second red
 				q1.getOpen() == q0.getAdjClose() && //same body
 				q1.getAdjClose() == q0.getOpen() &&
-				q1.getAdjClose() > q1.getLow() &&
-				q0.getLow() == q1.getLow(); //same low
+				q1.getAdjClose() < q1.getHigh() &&
+				q0.getHigh() == q1.getHigh(); //same high
 	}
 
 	@Override
