@@ -1,4 +1,4 @@
-package com.fxminer.open.model.candlestick;
+package com.fxminer.open.model.candlestickpattern;
 
 import com.fxminer.open.model.Symbol;
 

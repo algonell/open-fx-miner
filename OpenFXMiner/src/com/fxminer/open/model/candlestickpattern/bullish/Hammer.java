@@ -1,4 +1,4 @@
-package com.fxminer.open.model.candlestick;
+package com.fxminer.open.model.candlestickpattern.bullish;
 
 import com.fxminer.open.model.Quote;
 import com.fxminer.open.model.Symbol;
