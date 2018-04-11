@@ -25,6 +25,8 @@ public class ThreeWhiteSoldiers extends BullishPattern {
 				q2.getAdjClose() - q2.getOpen() > 0 &&
 				q0.getAdjClose() > q1.getAdjClose() && //higher close
 				q1.getAdjClose() > q2.getAdjClose() &&
+				q1.getAdjClose() > q0.getOpen() &&
+				q2.getAdjClose() > q1.getOpen() &&
 				q0.getOpen() > q1.getOpen() && //higher open
 				q1.getOpen() > q2.getOpen();
 	}

@@ -24,7 +24,8 @@ public class DarkCloudCover extends BearishPattern {
 		return q1.getAdjClose() - q1.getOpen() > 0 &&
 				q0.getOpen() - q0.getAdjClose() > 0 &&
 				q0.getOpen() >= q1.getAdjClose() &&
-				q0.getAdjClose() <= q1.getAdjClose() - q1Body / 2;
+				q0.getAdjClose() <= q1.getAdjClose() - q1Body / 2 &&
+				q0.getAdjClose() > q1.getOpen();
 	}
 
 	@Override

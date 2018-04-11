@@ -25,6 +25,7 @@ public class MorningStar extends BullishPattern {
 		double q2Body = q1.getOpen() - q1.getAdjClose();
 		
 		return q2.getOpen() - q2.getAdjClose() > 0 && //first red
+				q0Body > 0 && q1Body > 0 && //second and third are green
 				q2Body > q1Body && q2Body > q0Body &&
 				q1Body < q0Body && q1Body < q2Body && //second candle body is tiny
 				q0.getAdjClose() >= q2.getAdjClose() + q2Body / 2; //4.

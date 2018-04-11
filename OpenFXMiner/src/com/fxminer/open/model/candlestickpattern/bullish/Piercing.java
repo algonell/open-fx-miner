@@ -24,7 +24,8 @@ public class Piercing extends BullishPattern {
 		return q1.getOpen() - q1.getAdjClose() > 0 &&
 				q0.getAdjClose() - q0.getOpen() > 0 &&
 				q0.getOpen() <= q1.getAdjClose() &&
-				q0.getAdjClose() >= q1.getAdjClose() + q1Body / 2;
+				q0.getAdjClose() >= q1.getAdjClose() + q1Body / 2 &&
+				q0.getAdjClose() < q1.getOpen();
 	}
 
 	@Override
