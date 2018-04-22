@@ -13,7 +13,7 @@ public interface CandlestickPattern {
 	/**
 	 * Maximum threshold between equal prices comparison 
 	 */
-	public static final double EPSILON = 0.01;
+	double EPSILON = 0.01;
 	
 	/**
 	 * Check if this pattern exists for a given Symbol
