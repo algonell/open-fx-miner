@@ -72,7 +72,7 @@ public class Symbol implements Serializable {
 	 * @return 3 month avg vol
 	 * @throws Exception
 	 */
-	public long calculateAvgVol() throws Exception{
+	public long calculateAvgVol() {
 		DescriptiveStatistics stats = new DescriptiveStatistics();
 		
 		//min data points is 63
