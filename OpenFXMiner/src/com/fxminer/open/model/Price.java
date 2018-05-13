@@ -1,12 +1,17 @@
 package com.fxminer.open.model;
 
+import java.io.Serializable;
+
 /**
  * Holds data for real-time price quote
  * 
  * @author Andrew Kreimer
  *
  */
-public class Price {
+public class Price implements Serializable {
+	
+	private static final long serialVersionUID = -85127596414383276L;
+	
 	private double bid;
 	private double ask;
 	private long volume;
