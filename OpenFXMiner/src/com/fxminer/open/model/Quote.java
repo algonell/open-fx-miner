@@ -118,4 +118,17 @@ public class Quote implements QuoteValidator, Serializable {
 	public boolean isCleanClass() {
 		return !classifiedTrend.equals(Trend.Uncertainty.name()) && !classifiedTrend.equals(Trend.Ranging.name());
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(timestamp.getTime()).append(",");
+
+		// OHLC
+		sb.append(open).append(",").append(high).append(",").append(low).append(",").append(close).append(",").append(adjClose).append(",").append(volume);
+		
+		return sb.toString();
+	}
+	
 }
