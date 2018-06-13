@@ -62,11 +62,11 @@ public class Price implements Serializable {
 	}
 	
 	public double getChangePercent() {
-		return weka.core.Utils.roundDouble(getChange() / close * 100, 2); 
+		return weka.core.Utils.roundDouble(getChange() / close * 100, 1); 
 	}
 	
 	@Override
 	public String toString() {
-		return "[" + getMid() + ", " + getChange() + ", " + getChangePercent() + ", " + getSpread() + ", " + volume + "]";
+		return "[" + getMid() + ", " + getChange() + ", " + getChangePercent() + "%, " + getSpread() + ", " + volume + "]";
 	}
 }
