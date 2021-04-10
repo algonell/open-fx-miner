@@ -3,7 +3,7 @@ package com.fxminer.open.model.candlestickpattern;
 import com.fxminer.open.model.Symbol;
 
 /**
- * Abstract representation of all possible candlestick patterns
+ * Abstract representation of all possible candlestick patterns.
  * 
  * @author Andrew Kreimer
  *
@@ -11,29 +11,27 @@ import com.fxminer.open.model.Symbol;
 public interface CandlestickPattern {
 	
 	/**
-	 * Maximum threshold between equal prices comparison 
+	 * Maximum threshold between equal prices comparison.
 	 */
 	double EPSILON = 0.01;
 	
 	/**
-	 * Check if this pattern exists for a given Symbol
+	 * Checks if this pattern exists for a given Symbol.
 	 * 
 	 * @param symbol
-	 * @return
 	 */
-	public boolean isPresent(Symbol symbol);
+	boolean isPresent(Symbol symbol);
 	
 	/**
-	 * Get the trade direction
+	 * Gets the trade direction.
+	 */
+	PatternDirection getDirection();
+	
+	/**
+	 * Gets the pattern name.
 	 * 
 	 * @return
 	 */
-	public PatternDirection getDirection();
+	String getName();
 	
-	/**
-	 * Get the pattern name
-	 * 
-	 * @return
-	 */
-	public String getName();
 }

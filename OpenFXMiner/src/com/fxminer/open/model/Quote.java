@@ -4,14 +4,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Container for basic asset data (FX currency pair, Stock and etc.)
+ * Container for basic asset data (FX currency pair, Stock and etc.).
+ *
+ * @author Andrew Kreimer
  *
  */
 public class Quote implements QuoteValidator, Serializable {
+	
 	private static final long serialVersionUID = -2885651778065986388L;
 	
 	/**
-	 * OHLC
+	 * OHLC.
 	 */
 	protected double open;
 	protected double high;
@@ -22,7 +25,7 @@ public class Quote implements QuoteValidator, Serializable {
 	protected Date timestamp;
 
 	/**
-	 * Trend
+	 * Trend.
 	 */
 	protected String classifiedTrend;
 
@@ -36,73 +39,25 @@ public class Quote implements QuoteValidator, Serializable {
 		this.timestamp = timestamp;
 	}
 
-	public double getAdjClose() {
-		return adjClose;
-	}
-
-	public void setAdjClose(double adjClose) {
-		this.adjClose = adjClose;
-	}
-
-	public long getVolume() {
-		return volume;
-	}
-
-	public void setVolume(long volume) {
-		this.volume = volume;
-	}
-
-	public String getClassifiedTrend() {
-		return classifiedTrend;
-	}
-
-	public void setClassifiedTrend(String classifiedTrend) {
-		this.classifiedTrend = classifiedTrend;
-	}
-	
-	public Date getTimestamp() {
-		return timestamp;
-	}
-
-	public void setTimestamp(Date timestamp) {
-		this.timestamp = timestamp;
-	}
-
-	public double getOpen() {
-		return open;
-	}
-
-	public void setOpen(double open) {
-		this.open = open;
-	}
-
-	public double getHigh() {
-		return high;
-	}
-
-	public void setHigh(double high) {
-		this.high = high;
-	}
-
-	public double getLow() {
-		return low;
-	}
-
-	public void setLow(double low) {
-		this.low = low;
-	}
-
-	public double getClose() {
-		return close;
-	}
-
-	public void setClose(double close) {
-		this.close = close;
-	}
+	public double getAdjClose() { return adjClose; }
+	public void setAdjClose(double adjClose) { this.adjClose = adjClose; }
+	public long getVolume() { return volume; }
+	public void setVolume(long volume) { this.volume = volume; }
+	public String getClassifiedTrend() { return classifiedTrend; }
+	public void setClassifiedTrend(String classifiedTrend) { this.classifiedTrend = classifiedTrend; }
+	public Date getTimestamp() { return timestamp; }
+	public void setTimestamp(Date timestamp) { this.timestamp = timestamp; }
+	public double getOpen() { return open; }
+	public void setOpen(double open) { this.open = open; }
+	public double getHigh() { return high; }
+	public void setHigh(double high) { this.high = high; }
+	public double getLow() { return low; }
+	public void setLow(double low) { this.low = low; }
+	public double getClose() { return close; }
+	public void setClose(double close) { this.close = close; }
 	
 	/**
-	 * Checks if the data is clean and ready for calculations
-	 * @return
+	 * Checks if the data is clean and ready for calculations.
 	 */
 	public boolean isCleanAttribute(){
 		return open != 0 && 
@@ -112,11 +67,10 @@ public class Quote implements QuoteValidator, Serializable {
 	}
 
 	/**
-	 * Checks if the data is clean and ready for calculations
-	 * @return
+	 * Checks if the data is clean and ready for calculations.
 	 */
 	public boolean isCleanClass() {
-		return !classifiedTrend.equals(Trend.Uncertainty.name()) && !classifiedTrend.equals(Trend.Ranging.name());
+		return !classifiedTrend.equals(Trend.UNCERTAINTY.name()) && !classifiedTrend.equals(Trend.RANGING.name());
 	}
 
 	@Override

@@ -5,14 +5,16 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding uptrend
- * 2. 3 consecutive long red candles
- * 3. Each candle closed successively lower
+ * 1. Preceding uptrend.
+ * 2. 3 consecutive long red candles.
+ * 3. Each candle closed successively lower.
  * 
  * @author Andrew Kreimer
  *
  */
 public class ThreeBlackCrows extends BearishPattern {
+
+	private static final String THREE_BLACK_CROWS = "ThreeBlackCrows";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -33,7 +35,7 @@ public class ThreeBlackCrows extends BearishPattern {
 
 	@Override
 	public String getName() {
-		return "ThreeBlackCrows";
+		return THREE_BLACK_CROWS;
 	}
 
 }

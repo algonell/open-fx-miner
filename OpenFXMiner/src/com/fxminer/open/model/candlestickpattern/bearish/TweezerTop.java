@@ -5,14 +5,16 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding uptrend
- * 2. First candle green, second candle red
- * 3. Both candles sharing same/almost same high
+ * 1. Preceding uptrend.
+ * 2. First candle green, second candle red.
+ * 3. Both candles sharing same/almost same high.
  * 
  * @author Andrew Kreimer
  *
  */
 public class TweezerTop extends BearishPattern {
+
+	private static final String TWEEZER_BOTTOM = "TweezerBottom";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -29,7 +31,7 @@ public class TweezerTop extends BearishPattern {
 
 	@Override
 	public String getName() {
-		return "TweezerBottom";
+		return TWEEZER_BOTTOM;
 	}
 
 }

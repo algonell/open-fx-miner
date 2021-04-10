@@ -1,8 +1,14 @@
 package com.fxminer.open.model;
 
 /**
- * Holds trend states
+ * Holds trend states.
+ * 
+ * @author Andrew Kreimer
+ *
  */
 public enum Trend {
-	Up, Down, Ranging, Uncertainty;
+	UP, 
+	DOWN, 
+	RANGING, 
+	UNCERTAINTY;
 }

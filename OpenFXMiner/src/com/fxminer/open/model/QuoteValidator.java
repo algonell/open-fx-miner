@@ -1,17 +1,21 @@
 package com.fxminer.open.model;
 
 /**
- * Provides validation tasks for Quote
+ * Provides validation tasks for Quote.
  * 
+ * @author Andrew Kreimer
+ *
  */
 public interface QuoteValidator {
+	
 	/**
-	 * Validate features
+	 * Validates features.
 	 */
-	public boolean isCleanAttribute();
+	boolean isCleanAttribute();
 
 	/**
-	 * Validate class variable
+	 * Validates class variable.
 	 */
-	public boolean isCleanClass();
+	boolean isCleanClass();
+	
 }

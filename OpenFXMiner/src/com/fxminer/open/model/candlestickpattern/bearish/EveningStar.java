@@ -5,15 +5,17 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding uptrend
- * 2. First candle green and long
- * 3. Second candle's real body tiny
- * 4. Third candle red, closed at 50% or more of real body of first candle
+ * 1. Preceding uptrend.
+ * 2. First candle green and long.
+ * 3. Second candle's real body tiny.
+ * 4. Third candle red, closed at 50% or more of real body of first candle.
  * 
  * @author Andrew Kreimer
  *
  */
 public class EveningStar extends BearishPattern {
+
+	private static final String EVENING_STAR = "EveningStar";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -33,7 +35,7 @@ public class EveningStar extends BearishPattern {
 
 	@Override
 	public String getName() {
-		return "EveningStar";
+		return EVENING_STAR;
 	}
 
 }

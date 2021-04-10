@@ -1,7 +1,7 @@
 package com.fxminer.open.model;
 
 /**
- * Holds periods available for trading/mining
+ * Holds periods available for trading/mining.
  * 
  * @author Andrew Kreimer
  *

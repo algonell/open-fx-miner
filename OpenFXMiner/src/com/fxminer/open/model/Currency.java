@@ -1,7 +1,7 @@
 package com.fxminer.open.model;
 
 /**
- * Various currencies across markets
+ * Various currencies across markets.
  * 
  * @author Andrew Kreimer
  *

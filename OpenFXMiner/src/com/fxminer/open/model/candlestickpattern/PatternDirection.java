@@ -1,12 +1,12 @@
 package com.fxminer.open.model.candlestickpattern;
 
 /**
- * Trade direction for pattern
+ * Trade direction for pattern.
  * 
  * @author Andrew Kreimer
  *
  */
 public enum PatternDirection {
-	Bullish,
-	Bearish
+	BULLISH,
+	BEARISH
 }

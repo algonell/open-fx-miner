@@ -5,14 +5,16 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding downtrend
- * 2. First candle red, second candle green
- * 3. Both candles sharing same/almost same low
+ * 1. Preceding downtrend.
+ * 2. First candle red, second candle green.
+ * 3. Both candles sharing same/almost same low.
  * 
  * @author Andrew Kreimer
  *
  */
 public class TweezerBottom extends BullishPattern {
+
+	private static final String TWEEZER_BOTTOM = "TweezerBottom";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -29,7 +31,7 @@ public class TweezerBottom extends BullishPattern {
 
 	@Override
 	public String getName() {
-		return "TweezerBottom";
+		return TWEEZER_BOTTOM;
 	}
 
 }

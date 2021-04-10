@@ -5,15 +5,17 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding downtrend
- * 2. First candle red, second candle green
- * 3. Second candle opened below/at closing of first candle
- * 4. Second candle closed at 50% or more of real body of first candle
+ * 1. Preceding downtrend.
+ * 2. First candle red, second candle green.
+ * 3. Second candle opened below/at closing of first candle.
+ * 4. Second candle closed at 50% or more of real body of first candle.
  * 
  * @author Andrew Kreimer
  *
  */
 public class Piercing extends BullishPattern {
+
+	private static final String STR_PIERCING = "Piercing";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -30,7 +32,7 @@ public class Piercing extends BullishPattern {
 
 	@Override
 	public String getName() {
-		return "Piercing";
+		return STR_PIERCING;
 	}
 
 }

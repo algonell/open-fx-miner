@@ -5,15 +5,17 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding uptrend
- * 2. First candle green, second candle red
- * 3. Second candle opened above/at closing of first candle
- * 4. Second candle closed at 50% or more of real body of first candle
+ * 1. Preceding uptrend.
+ * 2. First candle green, second candle red.
+ * 3. Second candle opened above/at closing of first candle.
+ * 4. Second candle closed at 50% or more of real body of first candle.
  * 
  * @author Andrew Kreimer
  *
  */
 public class DarkCloudCover extends BearishPattern {
+
+	private static final String DARK_CLOUD_COVER = "DarkCloudCover";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -30,7 +32,7 @@ public class DarkCloudCover extends BearishPattern {
 
 	@Override
 	public String getName() {
-		return "DarkCloudCover";
+		return DARK_CLOUD_COVER;
 	}
 
 }

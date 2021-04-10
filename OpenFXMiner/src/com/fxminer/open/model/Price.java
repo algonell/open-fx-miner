@@ -3,7 +3,7 @@ package com.fxminer.open.model;
 import java.io.Serializable;
 
 /**
- * Holds data for real-time price quote
+ * Holds data for real-time price quote.
  * 
  * @author Andrew Kreimer
  *
@@ -17,37 +17,14 @@ public class Price implements Serializable {
 	private long volume;
 	private double close;
 
-	public double getBid() {
-		return bid;
-	}
-
-	public void setBid(double bid) {
-		this.bid = bid;
-	}
-
-	public double getAsk() {
-		return ask;
-	}
-
-	public void setAsk(double ask) {
-		this.ask = ask;
-	}
-
-	public long getVolume() {
-		return volume;
-	}
-
-	public void setVolume(long volume) {
-		this.volume = volume;
-	}
-
-	public double getClose() {
-		return close;
-	}
-
-	public void setClose(double close) {
-		this.close = close;
-	}
+	public double getBid() { return bid; }
+	public void setBid(double bid) { this.bid = bid; }
+	public double getAsk() { return ask; }
+	public void setAsk(double ask) { this.ask = ask; }
+	public long getVolume() { return volume; }
+	public void setVolume(long volume) { this.volume = volume; }
+	public double getClose() { return close; }
+	public void setClose(double close) { this.close = close; }
 
 	public double getMid() {
 		return weka.core.Utils.roundDouble((ask + bid) / 2, 2);
@@ -69,4 +46,5 @@ public class Price implements Serializable {
 	public String toString() {
 		return "[" + getMid() + ", " + getChange() + ", " + getChangePercent() + "%, " + getSpread() + ", " + volume + "]";
 	}
+	
 }

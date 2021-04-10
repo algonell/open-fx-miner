@@ -5,14 +5,16 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding downtrend
- * 2. 3 consecutive long green candles
- * 3. Each candle closed successively higher
+ * 1. Preceding downtrend.
+ * 2. 3 consecutive long green candles.
+ * 3. Each candle closed successively higher.
  * 
  * @author Andrew Kreimer
  *
  */
 public class ThreeWhiteSoldiers extends BullishPattern {
+
+	private static final String THREE_WHITE_SOLDIERS = "ThreeWhiteSoldiers";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -33,7 +35,7 @@ public class ThreeWhiteSoldiers extends BullishPattern {
 
 	@Override
 	public String getName() {
-		return "ThreeWhiteSoldiers";
+		return THREE_WHITE_SOLDIERS;
 	}
 
 }

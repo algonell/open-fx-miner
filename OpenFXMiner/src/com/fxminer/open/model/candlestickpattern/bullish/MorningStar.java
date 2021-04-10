@@ -5,15 +5,17 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding downtrend
- * 2. First candle red and long
- * 3. Second candle's real body tiny
- * 4. Third candle green, closed at 50% or more of real body of first candle
+ * 1. Preceding downtrend.
+ * 2. First candle red and long.
+ * 3. Second candle's real body tiny.
+ * 4. Third candle green, closed at 50% or more of real body of first candle.
  * 
  * @author Andrew Kreimer
  *
  */
 public class MorningStar extends BullishPattern {
+
+	private static final String MORNING_STAR = "MorningStar";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -33,7 +35,7 @@ public class MorningStar extends BullishPattern {
 
 	@Override
 	public String getName() {
-		return "MorningStar";
+		return MORNING_STAR;
 	}
 
 }

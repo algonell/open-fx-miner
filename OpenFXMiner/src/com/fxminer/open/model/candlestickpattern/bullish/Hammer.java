@@ -5,14 +5,16 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding downtrend
- * 2. Little/no upper shadow
- * 3. Lower shadow at least 2x longer than real body
+ * 1. Preceding downtrend.
+ * 2. Little/no upper shadow.
+ * 3. Lower shadow at least 2x longer than real body.
  * 
  * @author Andrew Kreimer
  *
  */
 public class Hammer extends BullishPattern {
+
+	private static final String STR_HAMMER = "Hammer";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -27,7 +29,7 @@ public class Hammer extends BullishPattern {
 
 	@Override
 	public String getName() {
-		return "Hammer";
+		return STR_HAMMER;
 	}
 
 }

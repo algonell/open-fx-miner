@@ -5,15 +5,17 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding uptrend
- * 2. Little/no real body
- * 3. Little/no lower shadow
- * 4. Long upper shadow
+ * 1. Preceding uptrend.
+ * 2. Little/no real body.
+ * 3. Little/no lower shadow.
+ * 4. Long upper shadow.
  * 
  * @author Andrew Kreimer
  *
  */
 public class GravestoneDoji extends BearishPattern {
+
+	private static final String GRAVESTONE_DOJI = "GravestoneDoji";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -26,7 +28,7 @@ public class GravestoneDoji extends BearishPattern {
 
 	@Override
 	public String getName() {
-		return "GravestoneDoji";
+		return GRAVESTONE_DOJI;
 	}
 
 }

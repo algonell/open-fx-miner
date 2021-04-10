@@ -5,15 +5,17 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding downtrend
- * 2. Little/no real body
- * 3. Little/no upper shadow
- * 4. Long lower shadow
+ * 1. Preceding downtrend.
+ * 2. Little/no real body.
+ * 3. Little/no upper shadow.
+ * 4. Long lower shadow.
  * 
  * @author Andrew Kreimer
  *
  */
 public class DragonflyDoji extends BullishPattern {
+
+	private static final String DRAGONFLY_DOJI = "DragonflyDoji";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -26,7 +28,7 @@ public class DragonflyDoji extends BullishPattern {
 
 	@Override
 	public String getName() {
-		return "DragonflyDoji";
+		return DRAGONFLY_DOJI;
 	}
 
 }

@@ -5,15 +5,17 @@ import com.fxminer.open.model.Symbol;
 
 /**
  * Prerequisites:
- * 1. Preceding uptrend
- * 2. First candle green, second candle red
- * 3. First candle shorter, second candle longer
- * 4. First candle entirely contained in real body of second candle
+ * 1. Preceding uptrend.
+ * 2. First candle green, second candle red.
+ * 3. First candle shorter, second candle longer.
+ * 4. First candle entirely contained in real body of second candle.
  *  
  * @author Andrew Kreimer
  *
  */
 public class BearishEngulfing extends BearishPattern {
+
+	private static final String BEARISH_ENGULFING = "BearishEngulfing";
 
 	@Override
 	public boolean isPresent(Symbol symbol) {
@@ -28,7 +30,7 @@ public class BearishEngulfing extends BearishPattern {
 
 	@Override
 	public String getName() {
-		return "BearishEngulfing";
+		return BEARISH_ENGULFING;
 	}
 
 }
