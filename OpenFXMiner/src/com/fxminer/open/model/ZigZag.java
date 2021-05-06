@@ -385,7 +385,7 @@ public class ZigZag {
 	public double[] getLowMapBuffer() { return lowMapBuffer; }
 
 	public String calculateTrend(int bars, int i) {
-		Trend zzTrend = Trend.UNCERTAINTY;
+		var zzTrend = Trend.UNCERTAINTY;
 
 		do {
 			if (highMapBuffer[i] != 0)

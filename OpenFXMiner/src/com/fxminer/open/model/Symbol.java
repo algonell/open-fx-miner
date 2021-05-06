@@ -56,7 +56,7 @@ public class Symbol implements Serializable {
 	 * @return 3 month avg vol
 	 */
 	public long calculateAvgVol() {
-		DescriptiveStatistics stats = new DescriptiveStatistics();
+		var stats = new DescriptiveStatistics();
 		
 		//min data points is 63
 		if(history.size() < 63){
@@ -64,7 +64,7 @@ public class Symbol implements Serializable {
 		}
 		
 		//calc mean
-		for (int i = 0; i < 63; i++) {
+		for (var i = 0; i < 63; i++) {
 			stats.addValue(history.get(i).getVolume());
 		}
 		
