@@ -10,82 +10,126 @@ import java.util.Date;
  *
  */
 public class Quote implements QuoteValidator, Serializable {
-	
-	private static final long serialVersionUID = -2885651778065986388L;
-	
-	/**
-	 * OHLC.
-	 */
-	protected double open;
-	protected double high;
-	protected double low;
-	protected double close;
-	protected double adjClose;
-	protected long volume;
-	protected Date timestamp;
 
-	/**
-	 * Trend.
-	 */
-	protected String classifiedTrend;
+  private static final long serialVersionUID = -2885651778065986388L;
 
-	public Quote(double open, double high, double low, double close, 
-			double adjClose, long volume, Date timestamp) {
-		this.open = open;
-		this.high = high;
-		this.low = low;
-		this.close = close;
-		this.adjClose = adjClose;
-		this.volume = volume;
-		this.timestamp = timestamp;
-	}
+  /**
+   * OHLC.
+   */
+  protected double open;
+  protected double high;
+  protected double low;
+  protected double close;
+  protected double adjClose;
+  protected long volume;
+  protected Date timestamp;
 
-	public double getAdjClose() { return adjClose; }
-	public void setAdjClose(double adjClose) { this.adjClose = adjClose; }
-	public long getVolume() { return volume; }
-	public void setVolume(long volume) { this.volume = volume; }
-	public String getClassifiedTrend() { return classifiedTrend; }
-	public void setClassifiedTrend(String classifiedTrend) { this.classifiedTrend = classifiedTrend; }
-	public Date getTimestamp() { return timestamp; }
-	public void setTimestamp(Date timestamp) { this.timestamp = timestamp; }
-	public double getOpen() { return open; }
-	public void setOpen(double open) { this.open = open; }
-	public double getHigh() { return high; }
-	public void setHigh(double high) { this.high = high; }
-	public double getLow() { return low; }
-	public void setLow(double low) { this.low = low; }
-	public double getClose() { return close; }
-	public void setClose(double close) { this.close = close; }
-	
-	/**
-	 * Checks if the data is clean and ready for calculations.
-	 */
-	public boolean isCleanAttribute(){
-		return open != 0 && 
-				high != 0 && 
-				low != 0 && 
-				close != 0;
-	}
+  /**
+   * Trend.
+   */
+  protected String classifiedTrend;
 
-	/**
-	 * Checks if the data is clean and ready for calculations.
-	 */
-	public boolean isCleanClass() {
-		return !classifiedTrend.equals(Trend.UNCERTAINTY.name()) 
-				&& !classifiedTrend.equals(Trend.RANGING.name());
-	}
+  public Quote(double open, double high, double low, double close, double adjClose, long volume,
+      Date timestamp) {
+    this.open = open;
+    this.high = high;
+    this.low = low;
+    this.close = close;
+    this.adjClose = adjClose;
+    this.volume = volume;
+    this.timestamp = timestamp;
+  }
 
-	@Override
-	public String toString() {
-		var sb = new StringBuilder();
+  public double getAdjClose() {
+    return adjClose;
+  }
 
-		sb.append(timestamp.getTime()).append(",");
+  public void setAdjClose(double adjClose) {
+    this.adjClose = adjClose;
+  }
 
-		// OHLC
-		sb.append(open).append(",").append(high).append(",").append(low).append(",")
-				.append(close).append(",").append(adjClose).append(",").append(volume);
-		
-		return sb.toString();
-	}
-	
+  public long getVolume() {
+    return volume;
+  }
+
+  public void setVolume(long volume) {
+    this.volume = volume;
+  }
+
+  public String getClassifiedTrend() {
+    return classifiedTrend;
+  }
+
+  public void setClassifiedTrend(String classifiedTrend) {
+    this.classifiedTrend = classifiedTrend;
+  }
+
+  public Date getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(Date timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  public double getOpen() {
+    return open;
+  }
+
+  public void setOpen(double open) {
+    this.open = open;
+  }
+
+  public double getHigh() {
+    return high;
+  }
+
+  public void setHigh(double high) {
+    this.high = high;
+  }
+
+  public double getLow() {
+    return low;
+  }
+
+  public void setLow(double low) {
+    this.low = low;
+  }
+
+  public double getClose() {
+    return close;
+  }
+
+  public void setClose(double close) {
+    this.close = close;
+  }
+
+  /**
+   * Checks if the data is clean and ready for calculations.
+   */
+  public boolean isCleanAttribute() {
+    return open != 0 && high != 0 && low != 0 && close != 0;
+  }
+
+  /**
+   * Checks if the data is clean and ready for calculations.
+   */
+  public boolean isCleanClass() {
+    return !classifiedTrend.equals(Trend.UNCERTAINTY.name())
+        && !classifiedTrend.equals(Trend.RANGING.name());
+  }
+
+  @Override
+  public String toString() {
+    var sb = new StringBuilder();
+
+    sb.append(timestamp.getTime()).append(",");
+
+    // OHLC
+    sb.append(open).append(",").append(high).append(",").append(low).append(",").append(close)
+        .append(",").append(adjClose).append(",").append(volume);
+
+    return sb.toString();
+  }
+
 }

@@ -7,15 +7,15 @@ package com.fxminer.open.model;
  *
  */
 public interface QuoteValidator {
-	
-	/**
-	 * Validates features.
-	 */
-	boolean isCleanAttribute();
 
-	/**
-	 * Validates class variable.
-	 */
-	boolean isCleanClass();
-	
+  /**
+   * Validates features.
+   */
+  boolean isCleanAttribute();
+
+  /**
+   * Validates class variable.
+   */
+  boolean isCleanClass();
+
 }

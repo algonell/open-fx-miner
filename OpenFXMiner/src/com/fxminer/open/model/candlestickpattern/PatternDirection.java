@@ -7,6 +7,5 @@ package com.fxminer.open.model.candlestickpattern;
  *
  */
 public enum PatternDirection {
-	BULLISH,
-	BEARISH
+  BULLISH, BEARISH
 }

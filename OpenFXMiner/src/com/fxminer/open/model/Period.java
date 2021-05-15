@@ -7,8 +7,5 @@ package com.fxminer.open.model;
  *
  */
 public enum Period {
-	M15,
-	H1,
-	H4,
-	D1
+  M15, H1, H4, D1
 }

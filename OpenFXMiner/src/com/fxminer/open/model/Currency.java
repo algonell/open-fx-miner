@@ -7,9 +7,5 @@ package com.fxminer.open.model;
  *
  */
 public enum Currency {
-	USD,
-	GBP,
-	EUR,
-	JPY,
-	HKD
+  USD, GBP, EUR, JPY, HKD
 }

@@ -11,9 +11,9 @@ import com.fxminer.open.model.candlestickpattern.PatternDirection;
  */
 public abstract class BearishPattern implements CandlestickPattern {
 
-	@Override
-	public PatternDirection getDirection() {
-		return PatternDirection.BEARISH;
-	}
+  @Override
+  public PatternDirection getDirection() {
+    return PatternDirection.BEARISH;
+  }
 
 }
