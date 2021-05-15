@@ -44,7 +44,8 @@ public class Price implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "[" + getMid() + ", " + getChange() + ", " + getChangePercent() + "%, " + getSpread() + ", " + volume + "]";
+		return "[" + getMid() + ", " + getChange() + ", " + getChangePercent() 
+				+ "%, " + getSpread() + ", " + volume + "]";
 	}
 	
 }

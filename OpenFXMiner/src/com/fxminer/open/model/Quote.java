@@ -29,7 +29,8 @@ public class Quote implements QuoteValidator, Serializable {
 	 */
 	protected String classifiedTrend;
 
-	public Quote(double open, double high, double low, double close, double adjClose, long volume, Date timestamp) {
+	public Quote(double open, double high, double low, double close, 
+			double adjClose, long volume, Date timestamp) {
 		this.open = open;
 		this.high = high;
 		this.low = low;
@@ -70,7 +71,8 @@ public class Quote implements QuoteValidator, Serializable {
 	 * Checks if the data is clean and ready for calculations.
 	 */
 	public boolean isCleanClass() {
-		return !classifiedTrend.equals(Trend.UNCERTAINTY.name()) && !classifiedTrend.equals(Trend.RANGING.name());
+		return !classifiedTrend.equals(Trend.UNCERTAINTY.name()) 
+				&& !classifiedTrend.equals(Trend.RANGING.name());
 	}
 
 	@Override
@@ -80,7 +82,8 @@ public class Quote implements QuoteValidator, Serializable {
 		sb.append(timestamp.getTime()).append(",");
 
 		// OHLC
-		sb.append(open).append(",").append(high).append(",").append(low).append(",").append(close).append(",").append(adjClose).append(",").append(volume);
+		sb.append(open).append(",").append(high).append(",").append(low).append(",")
+				.append(close).append(",").append(adjClose).append(",").append(volume);
 		
 		return sb.toString();
 	}

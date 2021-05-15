@@ -66,7 +66,8 @@ public class ZigZag {
 
 		// --- start index validation
 		if (startPos < 0) {
-			LOGGER.warning(() -> String.format("Invalid parameter in the function iHighest, startPos = %s", startPos));
+			LOGGER.warning(() -> 
+					String.format("Invalid parameter in the function iHighest, startPos = %s", startPos));
 			return 0;
 		}
 
@@ -100,7 +101,8 @@ public class ZigZag {
 
 		// --- start index validation
 		if (startPos < 0) {
-			LOGGER.warning(() -> String.format("Invalid parameter in the function iLowest, startPos = %s", startPos));
+			LOGGER.warning(() -> 
+					String.format("Invalid parameter in the function iLowest, startPos = %s", startPos));
 			return 0;
 		}
 
@@ -175,7 +177,8 @@ public class ZigZag {
 	 * Searches for lawn.
 	 */
 	private void searchForLawn() {
-		if (highMapBuffer[shift] != 0.0 && highMapBuffer[shift] > lasthigh && lowMapBuffer[shift] == 0.0) {
+		if (highMapBuffer[shift] != 0.0 && highMapBuffer[shift] > lasthigh 
+				&& lowMapBuffer[shift] == 0.0) {
 			zigzagBuffer[lasthighpos] = 0.0;
 			lasthighpos = shift;
 			lasthigh = highMapBuffer[shift];
