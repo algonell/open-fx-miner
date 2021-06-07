@@ -1,4 +1,4 @@
-# OpenFXMiner
+# Open FX Miner
 Data Mining engine for FX and stocks trading:
 
  * Using YahooFinanceAPI for historical data retrieval
