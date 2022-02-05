@@ -3,15 +3,13 @@ package com.fxminer.open.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 /**
  * Holds data for symbol. Name examples: GOOG, FB, EURUSD etc. Period examples: M5, H1, D1 etc.
  * Class name examples: Up or Down etc.
- * 
- * @author Andrew Kreimer
  *
+ * @author Andrew Kreimer
  */
 public class Symbol implements Serializable {
 
@@ -21,9 +19,7 @@ public class Symbol implements Serializable {
   private String period;
   private String className;
 
-  /**
-   * [0] is the most recent tick, [n] is the last in history (oldest).
-   */
+  /** [0] is the most recent tick, [n] is the last in history (oldest). */
   private List<Quote> history = new ArrayList<>();
 
   public Symbol(String period, String name) {
@@ -72,7 +68,7 @@ public class Symbol implements Serializable {
 
   /**
    * Calculates avergae volume. Similar to Yahoo Avg Vol: 63 days mean volume.
-   * 
+   *
    * @return 3 month avg vol
    */
   public long calculateAvgVol() {
@@ -90,5 +86,4 @@ public class Symbol implements Serializable {
 
     return (long) stats.getMean();
   }
-
 }

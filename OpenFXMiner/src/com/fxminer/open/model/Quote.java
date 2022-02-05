@@ -7,16 +7,14 @@ import java.util.Date;
  * Container for basic asset data (FX currency pair, Stock and etc.).
  *
  * @author Andrew Kreimer
- *
  */
 public class Quote implements QuoteValidator, Serializable {
 
   private static final long serialVersionUID = -2885651778065986388L;
 
-  /**
-   * OHLC.
-   */
+  /** OHLC. */
   protected double open;
+
   protected double high;
   protected double low;
   protected double close;
@@ -24,12 +22,16 @@ public class Quote implements QuoteValidator, Serializable {
   protected long volume;
   protected Date timestamp;
 
-  /**
-   * Trend.
-   */
+  /** Trend. */
   protected String classifiedTrend;
 
-  public Quote(double open, double high, double low, double close, double adjClose, long volume,
+  public Quote(
+      double open,
+      double high,
+      double low,
+      double close,
+      double adjClose,
+      long volume,
       Date timestamp) {
     this.open = open;
     this.high = high;
@@ -104,16 +106,12 @@ public class Quote implements QuoteValidator, Serializable {
     this.close = close;
   }
 
-  /**
-   * Checks if the data is clean and ready for calculations.
-   */
+  /** Checks if the data is clean and ready for calculations. */
   public boolean isCleanAttribute() {
     return open != 0 && high != 0 && low != 0 && close != 0;
   }
 
-  /**
-   * Checks if the data is clean and ready for calculations.
-   */
+  /** Checks if the data is clean and ready for calculations. */
   public boolean isCleanClass() {
     return !classifiedTrend.equals(Trend.UNCERTAINTY.name())
         && !classifiedTrend.equals(Trend.RANGING.name());
@@ -126,10 +124,18 @@ public class Quote implements QuoteValidator, Serializable {
     sb.append(timestamp.getTime()).append(",");
 
     // OHLC
-    sb.append(open).append(",").append(high).append(",").append(low).append(",").append(close)
-        .append(",").append(adjClose).append(",").append(volume);
+    sb.append(open)
+        .append(",")
+        .append(high)
+        .append(",")
+        .append(low)
+        .append(",")
+        .append(close)
+        .append(",")
+        .append(adjClose)
+        .append(",")
+        .append(volume);
 
     return sb.toString();
   }
-
 }

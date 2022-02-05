@@ -6,9 +6,8 @@ import com.fxminer.open.model.Symbol;
 /**
  * Prerequisites: 1. Preceding uptrend. 2. Little/no real body. 3. Little/no lower shadow. 4. Long
  * upper shadow.
- * 
- * @author Andrew Kreimer
  *
+ * @author Andrew Kreimer
  */
 public class GravestoneDoji extends BearishPattern {
 
@@ -25,5 +24,4 @@ public class GravestoneDoji extends BearishPattern {
   public String getName() {
     return GRAVESTONE_DOJI;
   }
-
 }

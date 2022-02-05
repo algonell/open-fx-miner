@@ -5,9 +5,8 @@ import com.fxminer.open.model.candlestickpattern.PatternDirection;
 
 /**
  * Bearish candlestick patterns.
- * 
- * @author Andrew Kreimer
  *
+ * @author Andrew Kreimer
  */
 public abstract class BearishPattern implements CandlestickPattern {
 
@@ -15,5 +14,4 @@ public abstract class BearishPattern implements CandlestickPattern {
   public PatternDirection getDirection() {
     return PatternDirection.BEARISH;
   }
-
 }

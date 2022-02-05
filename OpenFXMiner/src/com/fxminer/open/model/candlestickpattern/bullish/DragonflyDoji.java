@@ -6,9 +6,8 @@ import com.fxminer.open.model.Symbol;
 /**
  * Prerequisites: 1. Preceding downtrend. 2. Little/no real body. 3. Little/no upper shadow. 4. Long
  * lower shadow.
- * 
- * @author Andrew Kreimer
  *
+ * @author Andrew Kreimer
  */
 public class DragonflyDoji extends BullishPattern {
 
@@ -25,5 +24,4 @@ public class DragonflyDoji extends BullishPattern {
   public String getName() {
     return DRAGONFLY_DOJI;
   }
-
 }

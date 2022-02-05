@@ -4,9 +4,8 @@ import java.util.logging.Logger;
 
 /**
  * Java implementation of MQL ZigZag indicator.
- * 
- * @author Andrew Kreimer
  *
+ * @author Andrew Kreimer
  */
 public class ZigZag {
 
@@ -56,7 +55,7 @@ public class ZigZag {
 
   /**
    * Searches for index of the highest bar.
-   * 
+   *
    * @param array
    * @param depth
    * @param startPos
@@ -66,14 +65,14 @@ public class ZigZag {
 
     // --- start index validation
     if (startPos < 0) {
-      LOGGER.warning(() -> String
-          .format("Invalid parameter in the function iHighest, startPos = %s", startPos));
+      LOGGER.warning(
+          () ->
+              String.format("Invalid parameter in the function iHighest, startPos = %s", startPos));
       return 0;
     }
 
     // --- depth correction if need
-    if (startPos - depth < 0)
-      depth = startPos;
+    if (startPos - depth < 0) depth = startPos;
 
     double max = array[startPos];
 
@@ -91,7 +90,7 @@ public class ZigZag {
 
   /**
    * Searches for index of the lowest bar
-   * 
+   *
    * @param array
    * @param depth
    * @param startPos
@@ -101,14 +100,14 @@ public class ZigZag {
 
     // --- start index validation
     if (startPos < 0) {
-      LOGGER.warning(() -> String.format("Invalid parameter in the function iLowest, startPos = %s",
-          startPos));
+      LOGGER.warning(
+          () ->
+              String.format("Invalid parameter in the function iLowest, startPos = %s", startPos));
       return 0;
     }
 
     // --- depth correction if need
-    if (startPos - depth < 0)
-      depth = startPos;
+    if (startPos - depth < 0) depth = startPos;
 
     double min = array[startPos];
 
@@ -126,7 +125,7 @@ public class ZigZag {
 
   /**
    * Performs custom calculation.
-   * 
+   *
    * @param ratesTotal
    * @param high
    * @param low
@@ -135,8 +134,7 @@ public class ZigZag {
     init(ratesTotal);
 
     // set start position for calculations
-    if (prevCalculated == 0)
-      limit = depth;
+    if (prevCalculated == 0) limit = depth;
 
     // ZigZag was already counted before
     calculateIfAlreadyCountedBefore(ratesTotal);
@@ -174,11 +172,10 @@ public class ZigZag {
     }
   }
 
-  /**
-   * Searches for lawn.
-   */
+  /** Searches for lawn. */
   private void searchForLawn() {
-    if (highMapBuffer[shift] != 0.0 && highMapBuffer[shift] > lasthigh
+    if (highMapBuffer[shift] != 0.0
+        && highMapBuffer[shift] > lasthigh
         && lowMapBuffer[shift] == 0.0) {
       zigzagBuffer[lasthighpos] = 0.0;
       lasthighpos = shift;
@@ -194,11 +191,10 @@ public class ZigZag {
     }
   }
 
-  /**
-   * Searches for peaks.
-   */
+  /** Searches for peaks. */
   private void searchForPeak() {
-    if (lowMapBuffer[shift] != 0.0 && lowMapBuffer[shift] < lastlow
+    if (lowMapBuffer[shift] != 0.0
+        && lowMapBuffer[shift] < lastlow
         && highMapBuffer[shift] == 0.0) {
       zigzagBuffer[lastlowpos] = 0.0;
       lastlowpos = shift;
@@ -216,7 +212,7 @@ public class ZigZag {
 
   /**
    * Searches for peak or lawn.
-   * 
+   *
    * @param high
    * @param low
    */
@@ -240,7 +236,7 @@ public class ZigZag {
 
   /**
    * Searches for high and low.
-   * 
+   *
    * @param ratesTotal
    * @param high
    * @param low
@@ -256,69 +252,59 @@ public class ZigZag {
 
   /**
    * Handles low found.
-   * 
+   *
    * @param low
    */
   private void handleLowFound(double[] low) {
     val = low[iLowest(low, depth, shift)];
 
-    if (val == lastlow)
-      val = 0.0;
+    if (val == lastlow) val = 0.0;
     else {
       lastlow = val;
 
-      if ((low[shift] - val) > deviationInPoints)
-        val = 0.0;
+      if ((low[shift] - val) > deviationInPoints) val = 0.0;
       else {
         for (back = 1; back <= backstep; back++) {
           res = lowMapBuffer[shift - back];
 
-          if ((res != 0) && (res > val))
-            lowMapBuffer[shift - back] = 0.0;
+          if ((res != 0) && (res > val)) lowMapBuffer[shift - back] = 0.0;
         }
       }
     }
 
-    if (low[shift] == val)
-      lowMapBuffer[shift] = val;
-    else
-      lowMapBuffer[shift] = 0.0;
+    if (low[shift] == val) lowMapBuffer[shift] = val;
+    else lowMapBuffer[shift] = 0.0;
   }
 
   /**
    * Handles found high.
-   * 
+   *
    * @param high
    */
   private void handleHighFound(double[] high) {
     val = high[iHighest(high, depth, shift)];
 
-    if (val == lasthigh)
-      val = 0.0;
+    if (val == lasthigh) val = 0.0;
     else {
       lasthigh = val;
 
-      if ((val - high[shift]) > deviationInPoints)
-        val = 0.0;
+      if ((val - high[shift]) > deviationInPoints) val = 0.0;
       else {
         for (back = 1; back <= backstep; back++) {
           res = highMapBuffer[shift - back];
 
-          if ((res != 0) && (res < val))
-            highMapBuffer[shift - back] = 0.0;
+          if ((res != 0) && (res < val)) highMapBuffer[shift - back] = 0.0;
         }
       }
     }
 
-    if (high[shift] == val)
-      highMapBuffer[shift] = val;
-    else
-      highMapBuffer[shift] = 0.0;
+    if (high[shift] == val) highMapBuffer[shift] = val;
+    else highMapBuffer[shift] = 0.0;
   }
 
   /**
    * Performs calculations if previously done.
-   * 
+   *
    * @param ratesTotal
    */
   private void calculateIfAlreadyCountedBefore(int ratesTotal) {
@@ -330,8 +316,7 @@ public class ZigZag {
       while (counterZ < level && i > ratesTotal - 100) {
         res = zigzagBuffer[i];
 
-        if (res != 0)
-          counterZ++;
+        if (res != 0) counterZ++;
 
         i--;
       }
@@ -359,7 +344,7 @@ public class ZigZag {
 
   /**
    * Initializes variables.
-   * 
+   *
    * @param ratesTotal
    */
   private void init(int ratesTotal) {
@@ -382,8 +367,7 @@ public class ZigZag {
     highMapBuffer = new double[ratesTotal];
     lowMapBuffer = new double[ratesTotal];
 
-    if (ratesTotal < 100)
-      LOGGER.warning("Not ebought bars for calculation");
+    if (ratesTotal < 100) LOGGER.warning("Not ebought bars for calculation");
   }
 
   public double[] getZigzagBuffer() {
@@ -402,10 +386,8 @@ public class ZigZag {
     var zzTrend = Trend.UNCERTAINTY;
 
     do {
-      if (highMapBuffer[i] != 0)
-        zzTrend = Trend.DOWN;
-      else if (lowMapBuffer[i] != 0)
-        zzTrend = Trend.UP;
+      if (highMapBuffer[i] != 0) zzTrend = Trend.DOWN;
+      else if (lowMapBuffer[i] != 0) zzTrend = Trend.UP;
 
       i++;
     } while (zzTrend == Trend.UNCERTAINTY && i < bars - 1);
@@ -428,5 +410,4 @@ public class ZigZag {
   public void setPoint(double point) {
     this.point = point;
   }
-
 }
