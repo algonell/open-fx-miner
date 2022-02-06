@@ -371,15 +371,15 @@ public class ZigZag {
   }
 
   public double[] getZigzagBuffer() {
-    return zigzagBuffer;
+    return zigzagBuffer.clone();
   }
 
   public double[] getHighMapBuffer() {
-    return highMapBuffer;
+    return highMapBuffer.clone();
   }
 
   public double[] getLowMapBuffer() {
-    return lowMapBuffer;
+    return lowMapBuffer.clone();
   }
 
   public String calculateTrend(int bars, int i) {

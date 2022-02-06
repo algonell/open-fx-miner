@@ -59,11 +59,11 @@ public class Symbol implements Serializable {
   }
 
   public List<Quote> getHistory() {
-    return history;
+    return new ArrayList<>(history);
   }
 
   public void setHistory(List<Quote> history) {
-    this.history = history;
+    this.history = new ArrayList<>(history);
   }
 
   /**

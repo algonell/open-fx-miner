@@ -39,7 +39,7 @@ public class Quote implements QuoteValidator, Serializable {
     this.close = close;
     this.adjClose = adjClose;
     this.volume = volume;
-    this.timestamp = timestamp;
+    this.timestamp = new Date(timestamp.getTime());
   }
 
   public double getAdjClose() {
@@ -67,11 +67,11 @@ public class Quote implements QuoteValidator, Serializable {
   }
 
   public Date getTimestamp() {
-    return timestamp;
+    return new Date(timestamp.getTime());
   }
 
   public void setTimestamp(Date timestamp) {
-    this.timestamp = timestamp;
+    this.timestamp = new Date(timestamp.getTime());
   }
 
   public double getOpen() {
