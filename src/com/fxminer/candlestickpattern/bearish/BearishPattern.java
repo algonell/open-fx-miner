@@ -1,7 +1,7 @@
-package com.fxminer.open.model.candlestickpattern.bearish;
+package com.fxminer.candlestickpattern.bearish;
 
-import com.fxminer.open.model.candlestickpattern.CandlestickPattern;
-import com.fxminer.open.model.candlestickpattern.PatternDirection;
+import com.fxminer.candlestickpattern.CandlestickPattern;
+import com.fxminer.candlestickpattern.PatternDirection;
 
 /**
  * Bearish candlestick patterns.

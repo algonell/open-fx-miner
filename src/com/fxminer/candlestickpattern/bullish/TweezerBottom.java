@@ -1,7 +1,7 @@
-package com.fxminer.open.model.candlestickpattern.bullish;
+package com.fxminer.candlestickpattern.bullish;
 
-import com.fxminer.open.model.Quote;
-import com.fxminer.open.model.Symbol;
+import com.fxminer.Quote;
+import com.fxminer.Symbol;
 
 /**
  * Prerequisites: 1. Preceding downtrend. 2. First candle red, second candle green. 3. Both candles

@@ -1,4 +1,4 @@
-package com.fxminer.open.model;
+package com.fxminer;
 
 /**
  * Holds periods available for trading/mining.

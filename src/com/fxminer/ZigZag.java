@@ -1,4 +1,4 @@
-package com.fxminer.open.model;
+package com.fxminer;
 
 import java.util.logging.Logger;
 

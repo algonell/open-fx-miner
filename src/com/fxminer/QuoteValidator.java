@@ -1,4 +1,4 @@
-package com.fxminer.open.model;
+package com.fxminer;
 
 /**
  * Provides validation tasks for Quote.

@@ -1,6 +1,6 @@
-package com.fxminer.open.model.candlestickpattern;
+package com.fxminer.candlestickpattern;
 
-import com.fxminer.open.model.Symbol;
+import com.fxminer.Symbol;
 
 /**
  * Abstract representation of all possible candlestick patterns.

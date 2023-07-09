@@ -1,7 +1,7 @@
-package com.fxminer.open.model.candlestickpattern.bullish;
+package com.fxminer.candlestickpattern.bullish;
 
-import com.fxminer.open.model.candlestickpattern.CandlestickPattern;
-import com.fxminer.open.model.candlestickpattern.PatternDirection;
+import com.fxminer.candlestickpattern.CandlestickPattern;
+import com.fxminer.candlestickpattern.PatternDirection;
 
 /**
  * Bullish candlestick patterns.

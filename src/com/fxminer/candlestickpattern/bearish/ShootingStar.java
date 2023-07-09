@@ -1,7 +1,7 @@
-package com.fxminer.open.model.candlestickpattern.bearish;
+package com.fxminer.candlestickpattern.bearish;
 
-import com.fxminer.open.model.Quote;
-import com.fxminer.open.model.Symbol;
+import com.fxminer.Quote;
+import com.fxminer.Symbol;
 
 /**
  * Prerequisites: 1. Preceding uptrend. 2. Little/no lower shadow. 3. Upper shadow at least 2x

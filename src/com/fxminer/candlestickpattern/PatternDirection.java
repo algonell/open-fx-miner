@@ -1,4 +1,4 @@
-package com.fxminer.open.model.candlestickpattern;
+package com.fxminer.candlestickpattern;
 
 /**
  * Trade direction for pattern.
