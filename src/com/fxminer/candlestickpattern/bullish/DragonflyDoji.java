@@ -1,6 +1,5 @@
 package com.fxminer.candlestickpattern.bullish;
 
-import com.fxminer.Quote;
 import com.fxminer.Symbol;
 
 /**
@@ -9,15 +8,16 @@ import com.fxminer.Symbol;
  *
  * @author Andrew Kreimer
  */
-public class DragonflyDoji extends BullishPattern {
+public final class DragonflyDoji extends BullishPattern {
 
   private static final String DRAGONFLY_DOJI = "DragonflyDoji";
 
   @Override
   public boolean isPresent(Symbol symbol) {
-    Quote q = symbol.getHistory().get(0);
+    var last = symbol.getHistory().size() - 1;
+    var q = symbol.getHistory().get(last);
 
-    return q.getOpen() == q.getHigh() && q.getOpen() == q.getAdjClose() && q.getOpen() > q.getLow();
+    return q.getOpen() == q.getHigh() && q.getOpen() == q.getClose() && q.getOpen() > q.getLow();
   }
 
   @Override

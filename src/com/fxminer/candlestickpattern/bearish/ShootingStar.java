@@ -1,6 +1,5 @@
 package com.fxminer.candlestickpattern.bearish;
 
-import com.fxminer.Quote;
 import com.fxminer.Symbol;
 
 /**
@@ -9,17 +8,18 @@ import com.fxminer.Symbol;
  *
  * @author Andrew Kreimer
  */
-public class ShootingStar extends BearishPattern {
+public final class ShootingStar extends BearishPattern {
 
   private static final String SHOOTING_STAR = "ShootingStar";
 
   @Override
   public boolean isPresent(Symbol symbol) {
-    Quote q = symbol.getHistory().get(0);
-    double body = q.getOpen() - q.getAdjClose();
+    var last = symbol.getHistory().size() - 1;
+    var q = symbol.getHistory().get(last);
+    var body = q.getOpen() - q.getClose();
 
-    return q.getOpen() > q.getAdjClose()
-        && q.getAdjClose() == q.getLow()
+    return q.getOpen() > q.getClose()
+        && q.getClose() == q.getLow()
         && q.getOpen() < q.getHigh()
         && body * 2 <= (q.getHigh() - q.getOpen());
   }

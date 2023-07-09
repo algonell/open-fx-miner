@@ -1,6 +1,5 @@
 package com.fxminer.candlestickpattern.bearish;
 
-import com.fxminer.Quote;
 import com.fxminer.Symbol;
 
 /**
@@ -9,15 +8,16 @@ import com.fxminer.Symbol;
  *
  * @author Andrew Kreimer
  */
-public class GravestoneDoji extends BearishPattern {
+public final class GravestoneDoji extends BearishPattern {
 
   private static final String GRAVESTONE_DOJI = "GravestoneDoji";
 
   @Override
   public boolean isPresent(Symbol symbol) {
-    Quote q = symbol.getHistory().get(0);
+    var last = symbol.getHistory().size() - 1;
+    var q = symbol.getHistory().get(last);
 
-    return q.getOpen() == q.getLow() && q.getOpen() == q.getAdjClose() && q.getOpen() < q.getHigh();
+    return q.getOpen() == q.getLow() && q.getOpen() == q.getClose() && q.getOpen() < q.getHigh();
   }
 
   @Override

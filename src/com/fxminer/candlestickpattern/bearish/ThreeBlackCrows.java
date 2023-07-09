@@ -1,6 +1,5 @@
 package com.fxminer.candlestickpattern.bearish;
 
-import com.fxminer.Quote;
 import com.fxminer.Symbol;
 
 /**
@@ -9,25 +8,26 @@ import com.fxminer.Symbol;
  *
  * @author Andrew Kreimer
  */
-public class ThreeBlackCrows extends BearishPattern {
+public final class ThreeBlackCrows extends BearishPattern {
 
   private static final String THREE_BLACK_CROWS = "ThreeBlackCrows";
 
   @Override
   public boolean isPresent(Symbol symbol) {
-    Quote q0 = symbol.getHistory().get(0);
-    Quote q1 = symbol.getHistory().get(1);
-    Quote q2 = symbol.getHistory().get(2);
+    var last = symbol.getHistory().size() - 1;
+    var q0 = symbol.getHistory().get(last);
+    var q1 = symbol.getHistory().get(last - 1);
+    var q2 = symbol.getHistory().get(last - 2);
 
-    return q0.getOpen() - q0.getAdjClose() > 0
+    return q0.getOpen() - q0.getClose() > 0
         && // three reds
-        q1.getOpen() - q1.getAdjClose() > 0
-        && q2.getOpen() - q2.getAdjClose() > 0
-        && q0.getAdjClose() < q1.getAdjClose()
+        q1.getOpen() - q1.getClose() > 0
+        && q2.getOpen() - q2.getClose() > 0
+        && q0.getClose() < q1.getClose()
         && // lower close
-        q1.getAdjClose() < q2.getAdjClose()
-        && q1.getAdjClose() < q0.getOpen()
-        && q2.getAdjClose() < q1.getOpen()
+        q1.getClose() < q2.getClose()
+        && q1.getClose() < q0.getOpen()
+        && q2.getClose() < q1.getOpen()
         && q0.getOpen() < q1.getOpen()
         && // lower open
         q1.getOpen() < q2.getOpen();

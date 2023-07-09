@@ -6,6 +6,18 @@ package com.fxminer.candlestickpattern;
  * @author Andrew Kreimer
  */
 public enum PatternDirection {
-  BULLISH,
-  BEARISH
+  BULLISH("Bullish"),
+
+  BEARISH("Bearish");
+
+  private final String name;
+
+  PatternDirection(String name) {
+    this.name = name;
+  }
+
+  @Override
+  public String toString() {
+    return name;
+  }
 }

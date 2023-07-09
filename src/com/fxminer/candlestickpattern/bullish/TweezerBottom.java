@@ -1,6 +1,5 @@
 package com.fxminer.candlestickpattern.bullish;
 
-import com.fxminer.Quote;
 import com.fxminer.Symbol;
 
 /**
@@ -9,23 +8,24 @@ import com.fxminer.Symbol;
  *
  * @author Andrew Kreimer
  */
-public class TweezerBottom extends BullishPattern {
+public final class TweezerBottom extends BullishPattern {
 
   private static final String TWEEZER_BOTTOM = "TweezerBottom";
 
   @Override
   public boolean isPresent(Symbol symbol) {
-    Quote q0 = symbol.getHistory().get(0);
-    Quote q1 = symbol.getHistory().get(1);
+    var last = symbol.getHistory().size() - 1;
+    var q0 = symbol.getHistory().get(last);
+    var q1 = symbol.getHistory().get(last - 1);
 
-    return q1.getOpen() - q1.getAdjClose() > 0
+    return q1.getOpen() - q1.getClose() > 0
         && // second green
-        q0.getAdjClose() - q0.getOpen() > 0
+        q0.getClose() - q0.getOpen() > 0
         && // first red
-        q1.getOpen() == q0.getAdjClose()
+        q1.getOpen() == q0.getClose()
         && // same body
-        q1.getAdjClose() == q0.getOpen()
-        && q1.getAdjClose() > q1.getLow()
+        q1.getClose() == q0.getOpen()
+        && q1.getClose() > q1.getLow()
         && q0.getLow() == q1.getLow(); // same low
   }
 

@@ -1,6 +1,5 @@
 package com.fxminer.candlestickpattern.bearish;
 
-import com.fxminer.Quote;
 import com.fxminer.Symbol;
 
 /**
@@ -10,21 +9,22 @@ import com.fxminer.Symbol;
  *
  * @author Andrew Kreimer
  */
-public class DarkCloudCover extends BearishPattern {
+public final class DarkCloudCover extends BearishPattern {
 
   private static final String DARK_CLOUD_COVER = "DarkCloudCover";
 
   @Override
   public boolean isPresent(Symbol symbol) {
-    Quote q0 = symbol.getHistory().get(0);
-    Quote q1 = symbol.getHistory().get(1);
-    double q1Body = q1.getAdjClose() - q1.getOpen();
+    var last = symbol.getHistory().size() - 1;
+    var q0 = symbol.getHistory().get(last);
+    var q1 = symbol.getHistory().get(last - 1);
+    var q1Body = q1.getClose() - q1.getOpen();
 
-    return q1.getAdjClose() - q1.getOpen() > 0
-        && q0.getOpen() - q0.getAdjClose() > 0
-        && q0.getOpen() >= q1.getAdjClose()
-        && q0.getAdjClose() <= q1.getAdjClose() - q1Body / 2
-        && q0.getAdjClose() > q1.getOpen();
+    return q1.getClose() - q1.getOpen() > 0
+        && q0.getOpen() - q0.getClose() > 0
+        && q0.getOpen() >= q1.getClose()
+        && q0.getClose() <= q1.getClose() - q1Body / 2
+        && q0.getClose() > q1.getOpen();
   }
 
   @Override

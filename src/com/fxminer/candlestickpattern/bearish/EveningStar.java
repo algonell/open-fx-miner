@@ -1,6 +1,5 @@
 package com.fxminer.candlestickpattern.bearish;
 
-import com.fxminer.Quote;
 import com.fxminer.Symbol;
 
 /**
@@ -9,20 +8,21 @@ import com.fxminer.Symbol;
  *
  * @author Andrew Kreimer
  */
-public class EveningStar extends BearishPattern {
+public final class EveningStar extends BearishPattern {
 
   private static final String EVENING_STAR = "EveningStar";
 
   @Override
   public boolean isPresent(Symbol symbol) {
-    Quote q0 = symbol.getHistory().get(0);
-    Quote q1 = symbol.getHistory().get(1);
-    Quote q2 = symbol.getHistory().get(2);
-    double q0Body = q0.getOpen() - q0.getAdjClose();
-    double q1Body = q1.getOpen() - q1.getAdjClose();
-    double q2Body = q1.getAdjClose() - q1.getOpen();
+    var last = symbol.getHistory().size() - 1;
+    var q0 = symbol.getHistory().get(last);
+    var q1 = symbol.getHistory().get(last - 1);
+    var q2 = symbol.getHistory().get(last - 2);
+    var q0Body = q0.getOpen() - q0.getClose();
+    var q1Body = q1.getOpen() - q1.getClose();
+    var q2Body = q1.getClose() - q1.getOpen();
 
-    return q2.getAdjClose() - q2.getOpen() > 0
+    return q2.getClose() - q2.getOpen() > 0
         && // first green
         q0Body > 0
         && q1Body > 0
@@ -33,7 +33,7 @@ public class EveningStar extends BearishPattern {
         && q1Body < q2Body
         && // second candle
         // body is tiny
-        q0.getAdjClose() <= q2.getAdjClose() - q2Body / 2; // 4.
+        q0.getClose() <= q2.getClose() - q2Body / 2; // 4.
   }
 
   @Override

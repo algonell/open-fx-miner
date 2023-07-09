@@ -1,6 +1,5 @@
 package com.fxminer.candlestickpattern.bullish;
 
-import com.fxminer.Quote;
 import com.fxminer.Symbol;
 
 /**
@@ -9,23 +8,24 @@ import com.fxminer.Symbol;
  *
  * @author Andrew Kreimer
  */
-public class Hammer extends BullishPattern {
+public final class Hammer extends BullishPattern {
 
-  private static final String STR_HAMMER = "Hammer";
+  private static final String NAME = "Hammer";
 
   @Override
   public boolean isPresent(Symbol symbol) {
-    Quote q = symbol.getHistory().get(0);
-    double body = q.getAdjClose() - q.getOpen();
+    var last = symbol.getHistory().size() - 1;
+    var q = symbol.getHistory().get(last);
+    var body = q.getClose() - q.getOpen();
 
-    return q.getOpen() < q.getAdjClose()
-        && q.getAdjClose() == q.getHigh()
+    return q.getOpen() < q.getClose()
+        && q.getClose() == q.getHigh()
         && q.getOpen() > q.getLow()
         && body * 2 <= (q.getOpen() - q.getLow());
   }
 
   @Override
   public String getName() {
-    return STR_HAMMER;
+    return NAME;
   }
 }

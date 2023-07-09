@@ -1,6 +1,5 @@
 package com.fxminer.candlestickpattern.bullish;
 
-import com.fxminer.Quote;
 import com.fxminer.Symbol;
 
 /**
@@ -9,20 +8,21 @@ import com.fxminer.Symbol;
  *
  * @author Andrew Kreimer
  */
-public class BullishEngulfing extends BullishPattern {
+public final class BullishEngulfing extends BullishPattern {
 
   private static final String BULLISH_ENGULFING = "BullishEngulfing";
 
   @Override
   public boolean isPresent(Symbol symbol) {
-    Quote q0 = symbol.getHistory().get(0);
-    Quote q1 = symbol.getHistory().get(1);
+    var last = symbol.getHistory().size() - 1;
+    var q0 = symbol.getHistory().get(last);
+    var q1 = symbol.getHistory().get(last - 1);
 
-    return q1.getOpen() - q1.getAdjClose() > 0
-        && q0.getAdjClose() - q0.getOpen() > 0
+    return q1.getOpen() - q1.getClose() > 0
+        && q0.getClose() - q0.getOpen() > 0
         && q1.getHigh() - q1.getLow() < q0.getHigh() - q0.getLow()
-        && q1.getOpen() < q0.getAdjClose()
-        && q1.getAdjClose() > q0.getOpen();
+        && q1.getOpen() < q0.getClose()
+        && q1.getClose() > q0.getOpen();
   }
 
   @Override
