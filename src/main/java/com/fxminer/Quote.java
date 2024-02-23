@@ -1,7 +1,7 @@
 package com.fxminer;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 /**
  * Container for basic asset data (FX currency pair, Stock and etc.).
@@ -20,7 +20,7 @@ public class Quote implements QuoteValidator, Serializable {
   protected double close;
   protected double adjClose;
   protected long volume;
-  protected Date timestamp;
+  protected ZonedDateTime timestamp;
 
   /** Trend. */
   protected String classifiedTrend;
@@ -32,14 +32,14 @@ public class Quote implements QuoteValidator, Serializable {
       double close,
       double adjClose,
       long volume,
-      Date timestamp) {
+      ZonedDateTime timestamp) {
     this.open = open;
     this.high = high;
     this.low = low;
     this.close = close;
     this.adjClose = adjClose;
     this.volume = volume;
-    this.timestamp = new Date(timestamp.getTime());
+    this.timestamp = timestamp;
   }
 
   public double getAdjClose() {
@@ -66,12 +66,12 @@ public class Quote implements QuoteValidator, Serializable {
     this.classifiedTrend = classifiedTrend;
   }
 
-  public Date getTimestamp() {
-    return new Date(timestamp.getTime());
+  public ZonedDateTime getTimestamp() {
+    return timestamp;
   }
 
-  public void setTimestamp(Date timestamp) {
-    this.timestamp = new Date(timestamp.getTime());
+  public void setTimestamp(ZonedDateTime timestamp) {
+    this.timestamp = timestamp;
   }
 
   public double getOpen() {
@@ -107,11 +107,13 @@ public class Quote implements QuoteValidator, Serializable {
   }
 
   /** Checks if the data is clean and ready for calculations. */
+  @Override
   public boolean isCleanAttribute() {
     return open != 0 && high != 0 && low != 0 && close != 0;
   }
 
   /** Checks if the data is clean and ready for calculations. */
+  @Override
   public boolean isCleanClass() {
     return !classifiedTrend.equals(Trend.UNCERTAINTY.name())
         && !classifiedTrend.equals(Trend.RANGING.name());
@@ -121,7 +123,7 @@ public class Quote implements QuoteValidator, Serializable {
   public String toString() {
     var sb = new StringBuilder();
 
-    sb.append(timestamp.getTime()).append(",");
+    sb.append(timestamp.toEpochSecond()).append(",");
 
     // OHLC
     sb.append(open)

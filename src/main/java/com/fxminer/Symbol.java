@@ -81,7 +81,7 @@ public class Symbol implements Serializable {
 
     // calc mean
     for (var i = 0; i < 63; i++) {
-      stats.addValue(history.get(i).getVolume());
+      stats.addValue((double) history.get(i).getVolume());
     }
 
     return (long) stats.getMean();

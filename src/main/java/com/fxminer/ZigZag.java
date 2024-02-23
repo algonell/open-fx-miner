@@ -53,13 +53,7 @@ public class ZigZag {
     deviationInPoints = deviation * point;
   }
 
-  /**
-   * Searches for index of the highest bar.
-   *
-   * @param array
-   * @param depth
-   * @param startPos
-   */
+  /** Searches for index of the highest bar. */
   private int iHighest(double[] array, int depth, int startPos) {
     var index = startPos;
 
@@ -85,16 +79,10 @@ public class ZigZag {
     }
 
     // --- return index of the highest bar
-    return (index);
+    return index;
   }
 
-  /**
-   * Searches for index of the lowest bar
-   *
-   * @param array
-   * @param depth
-   * @param startPos
-   */
+  /** Searches for index of the lowest bar */
   private int iLowest(double[] array, int depth, int startPos) {
     var index = startPos;
 
@@ -120,16 +108,10 @@ public class ZigZag {
     }
 
     // --- return index of the lowest bar
-    return (index);
+    return index;
   }
 
-  /**
-   * Performs custom calculation.
-   *
-   * @param ratesTotal
-   * @param high
-   * @param low
-   */
+  /** Performs custom calculation. */
   public void calculate(int ratesTotal, double[] high, double[] low) {
     init(ratesTotal);
 
@@ -210,12 +192,7 @@ public class ZigZag {
     }
   }
 
-  /**
-   * Searches for peak or lawn.
-   *
-   * @param high
-   * @param low
-   */
+  /** Searches for peak or lawn. */
   private void searchForPeakOrLawn(double[] high, double[] low) {
     if (lastlow == 0 && lasthigh == 0) {
       if (highMapBuffer[shift] != 0) {
@@ -234,13 +211,7 @@ public class ZigZag {
     }
   }
 
-  /**
-   * Searches for high and low.
-   *
-   * @param ratesTotal
-   * @param high
-   * @param low
-   */
+  /** Searches for high and low. */
   private void searchForHighAndLow(int ratesTotal, double[] high, double[] low) {
     for (shift = limit; shift < ratesTotal; shift++) {
       handleLowFound(low);
@@ -250,11 +221,7 @@ public class ZigZag {
     }
   }
 
-  /**
-   * Handles low found.
-   *
-   * @param low
-   */
+  /** Handles low found. */
   private void handleLowFound(double[] low) {
     val = low[iLowest(low, depth, shift)];
 
@@ -276,11 +243,7 @@ public class ZigZag {
     else lowMapBuffer[shift] = 0.0;
   }
 
-  /**
-   * Handles found high.
-   *
-   * @param high
-   */
+  /** Handles found high. */
   private void handleHighFound(double[] high) {
     val = high[iHighest(high, depth, shift)];
 
@@ -302,11 +265,7 @@ public class ZigZag {
     else highMapBuffer[shift] = 0.0;
   }
 
-  /**
-   * Performs calculations if previously done.
-   *
-   * @param ratesTotal
-   */
+  /** Performs calculations if previously done. */
   private void calculateIfAlreadyCountedBefore(int ratesTotal) {
     int i;
     if (prevCalculated > 0) {
@@ -342,11 +301,7 @@ public class ZigZag {
     }
   }
 
-  /**
-   * Initializes variables.
-   *
-   * @param ratesTotal
-   */
+  /** Initializes variables. */
   private void init(int ratesTotal) {
     limit = 0;
     counterZ = 0;
