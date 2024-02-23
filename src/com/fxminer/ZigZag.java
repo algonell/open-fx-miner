@@ -61,7 +61,7 @@ public class ZigZag {
    * @param startPos
    */
   private int iHighest(double[] array, int depth, int startPos) {
-    int index = startPos;
+    var index = startPos;
 
     // --- start index validation
     if (startPos < 0) {
@@ -74,10 +74,10 @@ public class ZigZag {
     // --- depth correction if need
     if (startPos - depth < 0) depth = startPos;
 
-    double max = array[startPos];
+    var max = array[startPos];
 
     // --- start searching
-    for (int i = startPos; i > startPos - depth; i--) {
+    for (var i = startPos; i > startPos - depth; i--) {
       if (array[i] > max) {
         index = i;
         max = array[i];
@@ -96,7 +96,7 @@ public class ZigZag {
    * @param startPos
    */
   private int iLowest(double[] array, int depth, int startPos) {
-    int index = startPos;
+    var index = startPos;
 
     // --- start index validation
     if (startPos < 0) {
@@ -109,10 +109,10 @@ public class ZigZag {
     // --- depth correction if need
     if (startPos - depth < 0) depth = startPos;
 
-    double min = array[startPos];
+    var min = array[startPos];
 
     // --- start searching
-    for (int i = startPos; i > startPos - depth; i--) {
+    for (var i = startPos; i > startPos - depth; i--) {
       if (array[i] < min) {
         index = i;
         min = array[i];
