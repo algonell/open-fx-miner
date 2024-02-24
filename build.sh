@@ -2,5 +2,6 @@
 
 clear
 
-echo "\nopen-fx-miner..."
+echo
+echo "open-fx-miner..."
 mvn -f ~/git/open-fx-miner clean package -DskipTests
